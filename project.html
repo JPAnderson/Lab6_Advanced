@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do list</title>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+
+   <!-- <link rel="stylesheet" type="text/css" href="advancedColor.css"> -->
+
+    <style>
+        .done{
+            color: green;
+        }
+
+        .notDone{
+            color: red;
+            font-style: italic;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+<h2>To Do List</h2>
+
+<ul id="list">
+</ul>
+
+<form>
+    <input type="text" id="text">
+</form>
+
+<button onclick='addMe()' id="button" >Add to List</button>
+
+
+
+<script>
+    function addMe(){
+        var list = document.getElementById("list");
+        var toAdd = document.getElementById("text").value;
+        console.log(toAdd);
+
+        var listItem = document.createElement("li");
+        listItem.className = "notDone";
+        listItem.appendChild(document.createTextNode(toAdd));
+        list.appendChild(listItem);
+
+    }
+</script>
+
+<script>
+
+    $("document").ready(function(){
+        $(".notDone").click(function(){
+            $(this).toggleClass("done");
+        });
+    });
+
+</script>
+
+
+
+</body>
+</html>
